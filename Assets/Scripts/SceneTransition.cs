@@ -2,24 +2,25 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
-// Отвечает за переход между уровнями с анимацией затемнения экрана
 public class SceneTransition : MonoBehaviour
 {
-    public static AsyncOperation loadingSceneOperation; //  публичная ссылка на прогресс загрузки, восновдном для отдельного прогрессбара
+    public Text procent;
+    public Image progressBar;
 
-    private static SceneTransition instance;            //  Синглтон, для публичного статического метода смены сцены
-    private static bool shuldPlayBleckout = false;      //  Запускать ли анимацию расцеватия экрана, что бы не запускался на стартовой сцене
+    private static SceneTransition instance;
+    private static bool shuldPlayBleckout = false;
 
-    private Animator bleckoutAnimator;                  // Ссылка на аниматор с затемнением экрана
+    private Animator bleckoutAnimator;
+    private AsyncOperation loadingSceneOperation;
 
-    // Переключает на сцену по названию
     public static void SwitchToScene(string sceneName)
     {
         instance.bleckoutAnimator.SetTrigger(name: "BleckoutOn");
 
-        loadingSceneOperation = SceneManager.LoadSceneAsync(sceneName);
-        loadingSceneOperation.allowSceneActivation = false;                 // Не разрешаем перейти на другую сцену, пока анимация затемнения не закончится
+        instance.loadingSceneOperation = SceneManager.LoadSceneAsync(sceneName);
+        instance.loadingSceneOperation.allowSceneActivation = false;
     }
 
     private void Start()
@@ -31,10 +32,18 @@ public class SceneTransition : MonoBehaviour
             bleckoutAnimator.SetTrigger(name: "BleckoutOff");
     }
 
-    // Запускается из аниматора, в конце анимации затемнения, разрешает перейти на подгрузаемую или уже подруженную сцену 
+    private void Update()
+    {
+        if (loadingSceneOperation != null)
+        {
+            procent.text = Mathf.RoundToInt(loadingSceneOperation.progress * 100) + "%";
+            progressBar.fillAmount = loadingSceneOperation.progress;
+        }
+    }
+
     public void OnAnimatoinOver()
     {
         shuldPlayBleckout = true;
-        loadingSceneOperation.allowSceneActivation = true;
+        instance.loadingSceneOperation.allowSceneActivation = true;
     }
 }
