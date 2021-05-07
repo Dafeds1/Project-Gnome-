@@ -40,7 +40,7 @@ public class GnomeController : MonoBehaviour
         }
         else
         {
-            anim.SetBool("IsRunning", true);
+            anim.SetBool("isRunning", true);
         }
 }
     
@@ -50,7 +50,7 @@ public class GnomeController : MonoBehaviour
         if (isGrounded == true && Input.GetKeyDown(KeyCode.Space))
         {
              rb.velocity = Vector2.up * jumpForce;
-            anim.SetTrigger("takeOff");
+            anim.SetTrigger("takeoff");
             
              
         }
