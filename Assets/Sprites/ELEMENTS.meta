@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: 295184f9630d12a4eb500d0505ff0c2f
+=======
+guid: 0d98e008af78aa74b876cf3fe2d8417d
+>>>>>>> parent of 9267056 (Revert "fix")
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}

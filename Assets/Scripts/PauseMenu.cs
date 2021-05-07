@@ -5,7 +5,7 @@ using UnityEngine;
 // ћеню ѕаузы
 //  *** нужно добавить чекбокс вкл/выкл звук    ***
 //  *** врем€ не идет, но нажатые кнопки задействуютс€ после выхода из паузы    ***
-// дл€ анемированного меню нужно выбрать Unscaled Time, Update Mode в јниматоре !!!
+// дл€ анемированного меню нужно выбрать Unscaled Time, Update Mode в јниматоре, что бы на него не действовала остоновка времени !!!
 public class PauseMenu : MonoBehaviour
 {
     public static bool gameIsPaused = false;
@@ -46,7 +46,7 @@ public class PauseMenu : MonoBehaviour
     public void StartMenu() 
     {
         Time.timeScale = 1;
-        // ƒобавить перход в стартовое меню     ***
+        SceneTransition.SwitchToScene("LevelStart");
     }
 
     // выход из игры

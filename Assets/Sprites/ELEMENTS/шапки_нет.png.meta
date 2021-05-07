@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: 67ca765ad3fe2f04a845bf0b32399113
+=======
+guid: f7cbf96941c9826439757c566edae2c2
+>>>>>>> parent of 9267056 (Revert "fix")
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
