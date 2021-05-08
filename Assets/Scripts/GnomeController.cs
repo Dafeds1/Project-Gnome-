@@ -14,7 +14,7 @@ public class GnomeController : MonoBehaviour
     public float checkRadius;
     public LayerMask WhatIsGround;
     private Animator anim;
-   
+
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -34,7 +34,7 @@ public class GnomeController : MonoBehaviour
         {
             flip();
         }
-        if(moveInput == 0)
+        if (moveInput == 0)
         {
             anim.SetBool("isRunning", false);
         }
@@ -42,19 +42,19 @@ public class GnomeController : MonoBehaviour
         {
             anim.SetBool("isRunning", true);
         }
-}
-    
+    }
+
     private void Update()
     {
         isGrounded = Physics2D.OverlapCircle(feetPos.position, checkRadius, WhatIsGround);
         if (isGrounded == true && Input.GetKeyDown(KeyCode.Space))
         {
-             rb.velocity = Vector2.up * jumpForce;
-            anim.SetTrigger("takeoff");
-            
-             
+            rb.velocity = Vector2.up * jumpForce;
+            anim.SetTrigger("takeOff");
+
+
         }
-        if(isGrounded == true)
+        if (isGrounded == true)
         {
             anim.SetBool("isJumping", false);
         }
@@ -64,12 +64,20 @@ public class GnomeController : MonoBehaviour
         }
     }
     void flip()
+    {
+        facingright = !facingright;
+        Vector3 Scaler = transform.localScale;
+        Scaler.x *= -1;
+        transform.localScale = Scaler;
+        if (moveInput < 0)
         {
-            facingright = !facingright;
-            Vector3 Scaler = transform.localScale;
-            Scaler.x *= -1;
-            transform.localScale = Scaler;
+            transform.eulerAngles = new Vector3(0, 180, 0);
+        }
+        else if (moveInput > 0)
+        {
+            transform.eulerAngles = new Vector3(0, 0, 0);
         }
     }
+}
     
 

@@ -1474,10 +1474,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1309989588}
-  - component: {fileID: 1309989587}
   - component: {fileID: 1309989589}
-  - component: {fileID: 1309989591}
   - component: {fileID: 1309989590}
+  - component: {fileID: 1309989591}
+  - component: {fileID: 1309989587}
   m_Layer: 6
   m_Name: GNOME
   m_TagString: Untagged
@@ -1498,7 +1498,7 @@ Animator:
   m_Controller: {fileID: 9100000, guid: d403efd077dcb004d903f3f3f30580b1, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
-  m_ApplyRootMotion: 0
+  m_ApplyRootMotion: 1
   m_LinearVelocityBlending: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
@@ -1512,8 +1512,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1309989586}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.86, y: -1.83, z: 2.89}
-  m_LocalScale: {x: 0.48, y: 0.48, z: 0.48}
+  m_LocalPosition: {x: -4.55, y: -1.83, z: -0.01}
+  m_LocalScale: {x: 0.48, y: 0.48, z: 0.0000949872}
   m_Children:
   - {fileID: 1652745470}
   - {fileID: 1052658654}
@@ -1554,8 +1554,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.03490088, y: 0.9060654}
-  m_Size: {x: 2.1054704, y: 4.1566505}
+  m_Offset: {x: 0.07075016, y: 0.69446373}
+  m_Size: {x: 2.0388994, y: 4.3272376}
   m_Direction: 0
 --- !u!114 &1309989591
 MonoBehaviour:
@@ -2683,7 +2683,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2061064466}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.76, y: 0.73, z: -0.98}
+  m_LocalPosition: {x: -0.76, y: 0.73, z: -12.84}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 826468371}
