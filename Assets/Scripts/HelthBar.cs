@@ -1,18 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
+// Отвечает за отоброжение количества жизней.
+//  *** возможно стоит сделать статическим ***
 public class HelthBar : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    private int cuurentHetlh;
+    [SerializeField]private Image[] haelths;
+    [SerializeField] private Sprite haelthOn;
+    [SerializeField] private Sprite haelthOff;
 
-    // Update is called once per frame
-    void Update()
+    public void ChangeHaelth(int healthCount)
     {
-        
+
     }
 }
