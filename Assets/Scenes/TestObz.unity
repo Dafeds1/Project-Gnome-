@@ -133,7 +133,7 @@ GameObject:
   m_Component:
   - component: {fileID: 249432797}
   - component: {fileID: 249432798}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: hand2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -216,7 +216,7 @@ GameObject:
   m_Component:
   - component: {fileID: 263987883}
   - component: {fileID: 263987884}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: ground2 (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -298,7 +298,7 @@ GameObject:
   m_Component:
   - component: {fileID: 264459222}
   - component: {fileID: 264459223}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: flame
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -547,7 +547,7 @@ GameObject:
   m_Component:
   - component: {fileID: 483780365}
   - component: {fileID: 483780366}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: ground2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -629,7 +629,7 @@ GameObject:
   m_Component:
   - component: {fileID: 525583614}
   - component: {fileID: 525583615}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -828,7 +828,7 @@ GameObject:
   m_Component:
   - component: {fileID: 826468371}
   - component: {fileID: 826468372}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: torch
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -914,7 +914,7 @@ GameObject:
   m_Component:
   - component: {fileID: 864919906}
   - component: {fileID: 864919907}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: ground2 (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -996,7 +996,7 @@ GameObject:
   m_Component:
   - component: {fileID: 893856968}
   - component: {fileID: 893856969}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: roof
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1080,7 +1080,7 @@ GameObject:
   - component: {fileID: 910900238}
   - component: {fileID: 910900240}
   - component: {fileID: 910900239}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: ground (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1199,7 +1199,7 @@ GameObject:
   m_Component:
   - component: {fileID: 936607007}
   - component: {fileID: 936607008}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1280,7 +1280,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1052658654}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: feetPos
   m_TagString: Untagged
   m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
@@ -1311,7 +1311,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1095371740}
   - component: {fileID: 1095371741}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: flame_3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1393,7 +1393,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1186485049}
   - component: {fileID: 1186485050}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: pick
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1478,7 +1478,7 @@ GameObject:
   - component: {fileID: 1309989590}
   - component: {fileID: 1309989591}
   - component: {fileID: 1309989587}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: GNOME
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1512,7 +1512,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1309989586}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.55, y: -1.83, z: -0.01}
+  m_LocalPosition: {x: -4.55, y: -1.83, z: 0}
   m_LocalScale: {x: 0.48, y: 0.48, z: 0.0000949872}
   m_Children:
   - {fileID: 1652745470}
@@ -1669,7 +1669,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1610244267}
   - component: {fileID: 1610244268}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: ground2 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1751,7 +1751,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1652745470}
   - component: {fileID: 1652745471}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: BodyParts
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1808,7 +1808,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1667561379}
   - component: {fileID: 1667561380}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: bag
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1889,7 +1889,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1673262330}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cave
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1929,7 +1929,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1683476623}
   - component: {fileID: 1683476624}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: leg2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2011,7 +2011,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1734463328}
   - component: {fileID: 1734463329}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2093,7 +2093,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1747798795}
   - component: {fileID: 1747798796}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: flame_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2175,7 +2175,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1782625811}
   - component: {fileID: 1782625812}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: ground2 (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2257,7 +2257,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1799681966}
   - component: {fileID: 1799681967}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: hand1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2422,7 +2422,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1935436259}
   - component: {fileID: 1935436260}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: roof (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2504,7 +2504,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2021554834}
   - component: {fileID: 2021554835}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: ground2 (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2586,7 +2586,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2053512277}
   - component: {fileID: 2053512278}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: leg1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2668,7 +2668,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2061064467}
   - component: {fileID: 2061064468}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Point Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
