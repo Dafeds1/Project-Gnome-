@@ -9,7 +9,7 @@ public class GnomeController : MonoBehaviour
     public float moveInput;
     private Rigidbody2D rb;
     private bool facingright = true;
-    private bool isGrounded;
+    private bool isGrounded = true;
     public Transform feetPos;
     public float checkRadius;
     public LayerMask WhatIsGround;
