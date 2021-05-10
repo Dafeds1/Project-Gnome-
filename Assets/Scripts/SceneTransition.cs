@@ -28,7 +28,9 @@ public class SceneTransition : MonoBehaviour
         bleckoutAnimator = GetComponent<Animator>();
 
         if (shuldPlayBleckout)
+        {
             bleckoutAnimator.SetTrigger(name: "BleckoutOff");
+        }
     }
 
     // Запускается из аниматора, в конце анимации затемнения, разрешает перейти на подгрузаемую или уже подруженную сцену 
@@ -36,5 +38,11 @@ public class SceneTransition : MonoBehaviour
     {
         shuldPlayBleckout = true;
         loadingSceneOperation.allowSceneActivation = true;
+    }
+
+    // Сброс тригера запуска анимации расцеветания экрана, почему то этот тригер не сбрасывается сам, делаем это в конце самой анимации
+    public void OffAnimatoinOver() 
+    {
+        bleckoutAnimator.ResetTrigger(name: "BleckoutOff");
     }
 }

@@ -9,15 +9,14 @@ public class StartMenu : MonoBehaviour
     // «апуск первого уровн€
     public void NewGame()
     {
-        // ***  тут нужно добавить сохранени€ изначальных параметров    ***
+        Saver.instance.ResetProgress();
         SceneTransition.SwitchToScene("Level1");
     }
 
-    // ѕродложить с сохранени€  *** не реализован   ***
+    // ѕродложить с сохранени€
     public void ContinueGame()
     {
-        // проверка есть ли сохранение
-        // загрузка и переход на текущий уровень игрока
+        SceneTransition.SwitchToScene(Saver.instance.currentLavel);
     }
 
     // ¬ыход из игры
