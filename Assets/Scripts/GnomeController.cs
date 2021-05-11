@@ -42,6 +42,14 @@ public class GnomeController : MonoBehaviour
         {
             anim.SetBool("isRunning", true);
         }
+        if (Input.GetKeyDown(KeyCode.Mouse0))
+        {
+            anim.SetBool("pickhit", true);
+        }
+        else
+        {
+            anim.SetBool("pickhit", false);
+        }
     }
 
     private void Update()
@@ -61,6 +69,14 @@ public class GnomeController : MonoBehaviour
         {
             anim.SetBool("isJumping", true);
         }
+        if (Input.GetKeyDown(KeyCode.Mouse0))
+        {
+            anim.SetBool("pickhit", false);
+        }
+        else
+        {
+            anim.SetBool("pickhit", true);
+        }
     }
     void flip()
     {
@@ -68,14 +84,7 @@ public class GnomeController : MonoBehaviour
         Vector3 Scaler = transform.localScale;
         Scaler.x *= -1;
         transform.localScale = Scaler;
-        if (moveInput < 0)
-        {
-            transform.eulerAngles = new Vector3(0, 180, 0);
-        }
-        else if (moveInput > 0)
-        {
-            transform.eulerAngles = new Vector3(0, 0, 0);
-        }
+     
     }
 }
     
