@@ -1,8 +1,6 @@
 fileFormatVersion: 2
-guid: 046112ceeefa8d04ab6a85d9cab66cd5
-labels:
-- Ui
-PrefabImporter:
+guid: 60bd480abf2e33c4fa5fd4eb2392fdd9
+TextScriptImporter:
   externalObjects: {}
   userData: 
   assetBundleName: 
