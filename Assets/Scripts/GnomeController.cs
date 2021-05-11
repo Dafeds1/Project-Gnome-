@@ -52,7 +52,6 @@ public class GnomeController : MonoBehaviour
             rb.velocity = Vector2.up * jumpForce;
             anim.SetTrigger("takeOff");
 
-
         }
         if (isGrounded == true)
         {
