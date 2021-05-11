@@ -42,6 +42,14 @@ public class GnomeController : MonoBehaviour
         {
             anim.SetBool("isRunning", true);
         }
+        if (Input.GetKeyDown(KeyCode.Mouse0))
+        {
+            anim.SetBool("pickhit", true);
+        }
+        else
+        {
+            anim.SetBool("pickhit", false);
+        }
     }
 
     private void Update()
@@ -61,6 +69,14 @@ public class GnomeController : MonoBehaviour
         else
         {
             anim.SetBool("isJumping", true);
+        }
+        if (Input.GetKeyDown(KeyCode.Mouse0))
+        {
+            anim.SetBool("pickhit", false);
+        }
+        else
+        {
+            anim.SetBool("pickhit", true);
         }
     }
     void flip()
