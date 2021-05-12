@@ -942,7 +942,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 2
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -1594,8 +1594,8 @@ MonoBehaviour:
   - {fileID: 2518986514912425344}
   - {fileID: 7140519968158168951}
   - {fileID: 4646321482071217252}
-  healthOn: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  healthOff: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
+  healthOn: {fileID: 21300000, guid: 9ee16202377888547a5832082c004cc0, type: 3}
+  healthOff: {fileID: 21300000, guid: 8e8ab99ce0b514d4e84a9c8ed150a2ca, type: 3}
 --- !u!1 &2680060409922136994
 GameObject:
   m_ObjectHideFlags: 0
