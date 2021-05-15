@@ -5,46 +5,76 @@ using UnityEngine;
 
 //  *** нужен енум side{ enemy ally neutral}
 // корневой класс всех существ
-namespace Characters
+
+public class Character : MonoBehaviour
 {
-    public class Character : MonoBehaviour
+    protected string name;
+    protected int maxHp;
+    protected int hp;
+
+    private bool facingRight = true;
+    public float xAxesSpeed;
+    public float groundCheckRadius;
+    public LayerMask groundMask;
+
+    protected Animator animator;
+    protected Rigidbody2D rb;
+
+    public void Initialize()
     {
-        string name;
-        int maxHp;
-        int hp;
+        hp = maxHp;
+        animator = GetComponent<Animator>();
+        rb = GetComponent<Rigidbody2D>();
+    }
 
-        private Animator animator;
-
-        public Character(string name, int maxHp)
+    protected void XAxesMove(float moveInput)
+    {
+        rb.velocity = new Vector2(moveInput * xAxesSpeed, rb.velocity.y);
+        if (facingRight == false && moveInput > 0)
         {
-            this.name = name;
-            this.maxHp = maxHp;
-
-            Initialize();
+            Flip();
         }
-
-        public void Initialize()
+        else if (facingRight == true && moveInput < 0)
         {
-            hp = maxHp;
-            animator = GetComponent<Animator>();
+            Flip();
         }
-
-        public void Atack()
+        if (moveInput == 0)
         {
-
+            animator.SetBool("isRunning", false);
         }
-
-        public void TakeDamage(int damage)
+        else
         {
-            hp -= damage;
-            if (hp <= 0)
-                Die();
+            animator.SetBool("isRunning", true);
         }
+    }
 
-        public void Die()
-        {
+    protected void Atack()
+    {
 
-        }
+    }
+
+    protected void TakeDamage(int damage)
+    {
+        hp -= damage;
+        if (hp <= 0)
+            Die();
+    }
+
+    protected void Die()
+    {
+
+    }
+
+    private void Flip()
+    {
+        Vector3 Scaler = transform.localScale;
+        Scaler.x *= -1;
+        transform.localScale = Scaler;
+    }
+
+    protected bool IsGrounded()
+    {
+        return Physics2D.OverlapCircle(transform.position, groundCheckRadius, groundMask);
     }
 }
 
