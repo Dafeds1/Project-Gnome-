@@ -4,15 +4,17 @@ using UnityEngine;
 
 public class Zombie : Character
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] private EnemyHealthBar helthBar;
+
+    private void Awake()
     {
-        
+        Initialize();
+        helthBar = GetComponentInChildren<EnemyHealthBar>();
     }
 
-    // Update is called once per frame
-    void Update()
+    public override void TakeDamage(int damage)
     {
-        
+        base.TakeDamage(damage);
+        helthBar.ChangeHaelth(hp);
     }
 }
