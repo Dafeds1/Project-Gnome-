@@ -9,10 +9,10 @@ using UnityEngine;
 public class Character : MonoBehaviour
 {
     protected string name;
-    protected int maxHp;
-    protected int hp;
+    public int maxHp;
+    public int hp { get; protected set;}
 
-    private bool facingRight = true;
+    public bool facingRight { get; private set; } = true;
     public float xAxesSpeed;
     public float groundCheckRadius;
     public LayerMask groundMask;
@@ -30,6 +30,7 @@ public class Character : MonoBehaviour
     protected void XAxesMove(float moveInput)
     {
         rb.velocity = new Vector2(moveInput * xAxesSpeed, rb.velocity.y);
+
         if (facingRight == false && moveInput > 0)
         {
             Flip();
@@ -48,13 +49,14 @@ public class Character : MonoBehaviour
         }
     }
 
-    protected void Atack()
+    protected virtual void Atack()
     {
-
+        animator.SetTrigger("attack1");
     }
 
-    protected void TakeDamage(int damage)
+    public virtual void TakeDamage(int damage)
     {
+        Debug.Log($"{gameObject.name} с {hp} HP, получил {damage} урона");
         hp -= damage;
         if (hp <= 0)
             Die();
@@ -62,11 +64,12 @@ public class Character : MonoBehaviour
 
     protected void Die()
     {
-
+        GameObject.Destroy(gameObject);
     }
 
     private void Flip()
     {
+        facingRight = !facingRight;
         Vector3 Scaler = transform.localScale;
         Scaler.x *= -1;
         transform.localScale = Scaler;

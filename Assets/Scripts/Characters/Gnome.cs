@@ -6,6 +6,10 @@ public class Gnome : Character
 {
     public float jumpForce;
 
+    [SerializeField] private CollisionTester collisionTester;
+    [SerializeField] private Weapon weapon1;
+    private bool isGrounded;
+
     private void Awake()
     {
         Initialize();
@@ -13,7 +17,22 @@ public class Gnome : Character
 
     private void FixedUpdate()
     {
-        XAxesMove(Input.GetAxis("Horizontal"));
+        //
+        if (!isGrounded && collisionTester.collisionCount >= 1)
+        {
+            XAxesMove(0);
+        }
+        else
+        {
+            XAxesMove(Input.GetAxis("Horizontal"));
+        }
+    }
+
+    private void Update()
+    {
+        isGrounded = IsGrounded();
+
+        Jump();
 
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
@@ -21,24 +40,29 @@ public class Gnome : Character
         }
     }
 
-    private void Update()
+    protected override void Atack()
     {
-        Jump();
+        if (weapon1.Attack())
+            base.Atack();
+    }
+
+    public override void TakeDamage(int damage)
+    {
+        base.TakeDamage(damage);
+        HealthBar.instance.ChangeHaelth(hp);
     }
 
     private void Jump()
     {
-        bool isGrounded = IsGrounded();
-        if (isGrounded == true && Input.GetKeyDown(KeyCode.Space))
-        {
-            rb.velocity = Vector2.up * jumpForce;
-            animator.SetTrigger("takeOff");
-
-        }
-
         if (isGrounded == true)
         {
             animator.SetBool("isJumping", false);
+
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                rb.velocity = Vector2.up * jumpForce;
+                animator.SetTrigger("takeOff");
+            }
         }
         else
         {
