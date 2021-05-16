@@ -7,7 +7,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: BleckoutOff
+  m_Name: BlackoutOff
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -34,7 +34,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: BleckoutOn
+  m_Name: BlackoutOn
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -91,14 +91,14 @@ AnimatorController:
   m_Name: SceneTranstion
   serializedVersion: 5
   m_AnimatorParameters:
-  - m_Name: BleckoutOn
-    m_Type: 4
+  - m_Name: BlackoutOn
+    m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
     m_Controller: {fileID: 0}
-  - m_Name: BleckoutOff
-    m_Type: 4
+  - m_Name: BlackoutOff
+    m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
@@ -125,7 +125,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: BleckoutOff
+    m_ConditionEvent: BlackoutOff
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -7062845635218548873}
@@ -178,7 +178,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: BleckoutOn
+    m_ConditionEvent: BlackoutOn
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -3922706749691152656}

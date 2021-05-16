@@ -16,7 +16,7 @@ public class SceneTransition : MonoBehaviour
     // Переключает на сцену по названию
     public static void SwitchToScene(string sceneName)
     {
-        instance.bleckoutAnimator.SetTrigger(name: "BleckoutOn");
+        instance.bleckoutAnimator.SetTrigger(name: "BlackoutOn");
 
         loadingSceneOperation = SceneManager.LoadSceneAsync(sceneName);
         loadingSceneOperation.allowSceneActivation = false;                 // Не разрешаем перейти на другую сцену, пока анимация затемнения не закончится
@@ -29,7 +29,7 @@ public class SceneTransition : MonoBehaviour
 
         if (shuldPlayBleckout)
         {
-            bleckoutAnimator.SetTrigger(name: "BleckoutOff");
+            bleckoutAnimator.SetTrigger(name: "BlackoutOff");
         }
     }
 
@@ -39,10 +39,11 @@ public class SceneTransition : MonoBehaviour
         shuldPlayBleckout = true;
         loadingSceneOperation.allowSceneActivation = true;
     }
-
+    /*
     // Сброс тригера запуска анимации расцеветания экрана, почему то этот тригер не сбрасывается сам, делаем это в конце самой анимации
     public void OffAnimatoinOver() 
     {
-        bleckoutAnimator.ResetTrigger(name: "BleckoutOff");
+        bleckoutAnimator.ResetTrigger(name: "BlackoutOff");
     }
+    */
 }

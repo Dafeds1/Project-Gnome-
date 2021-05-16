@@ -12,40 +12,29 @@ public class CameraController : MonoBehaviour
 
     public float dumping = 1.5f;                    // Сила смягчения движения
     public Vector2 offset = new Vector2(2f, 3f);    // Смещение центра камеры от игрока
-    public bool isLeft;                             // Персонаж повернут в лево
-    private Transform player;                       // Трансформ игрока
-
-    //  *** возможно, направление движения игрока, проще взять из скрипта управления Гнома    ***
-    private float lastX;                            // Предидущие значение по X игрока
-    private float currentX;                         // Текущие значение по X игрока
+    private Transform playerTransform;                       // Трансформ игрока
+    private Gnome player;
 
     private void Start()
     {
-        player = GameObject.FindGameObjectsWithTag("Player")[0].transform;
-        transform.position = new Vector3(player.position.x,transform.position.y,transform.position.z);
+        playerTransform = GameObject.FindGameObjectsWithTag("Player")[0].transform;
+        transform.position = new Vector3(playerTransform.position.x, playerTransform.position.y,transform.position.z);
+        player = playerTransform.GetComponent<Gnome>();
     }
 
     private void Update()
     {
-        if (player)
+        if (playerTransform != null)
         {
-            // Определяем в какую сторону идет игрок
-            currentX = player.position.x;
-            if (currentX > lastX)
-                isLeft = false;
-            else if (currentX < lastX)
-                isLeft = true;
-            lastX = currentX;
-
             // Расчитываем куда должна сдвинутся камера с учетом отступа и направления движения
             Vector3 target;
-            if (isLeft)
+            if (player.facingRight)
             {
-                target = new Vector3(player.position.x - offset.x, player.position.y + offset.y, transform.position.z);
+                target = new Vector3(playerTransform.position.x + offset.x, playerTransform.position.y + offset.y, transform.position.z);
             }
             else
             {
-                target = new Vector3(player.position.x + offset.x, player.position.y + offset.y, transform.position.z);
+                target = new Vector3(playerTransform.position.x - offset.x, playerTransform.position.y + offset.y, transform.position.z);
             }
 
             // Здвигаем камеру к вычесленной целевой позиции. Сбавляя скорость по мере приблежения к целевой позиции

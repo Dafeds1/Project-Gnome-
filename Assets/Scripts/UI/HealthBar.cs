@@ -12,9 +12,13 @@ public class HealthBar : MonoBehaviour
     [SerializeField] private Sprite healthOn;   // Картинка очка здоровья
     [SerializeField] private Sprite healthOff;  // Картинка отсутствующего здоровья
 
+    public static HealthBar instance;
+
     private void Start()
     {
         ChangeHaelth(maxtHeatlh);   // *** Нужно ли? где будет загрузка текущего количества здоровья, при старте сцены? ***
+
+        instance = this;
     }
 
     // Меняет отображаемое количество здоровья

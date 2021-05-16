@@ -5,46 +5,79 @@ using UnityEngine;
 
 //  *** нужен енум side{ enemy ally neutral}
 // корневой класс всех существ
-namespace Characters
+
+public class Character : MonoBehaviour
 {
-    public class Character : MonoBehaviour
+    protected string name;
+    public int maxHp;
+    public int hp { get; protected set;}
+
+    public bool facingRight { get; private set; } = true;
+    public float xAxesSpeed;
+    public float groundCheckRadius;
+    public LayerMask groundMask;
+
+    protected Animator animator;
+    protected Rigidbody2D rb;
+
+    public void Initialize()
     {
-        string name;
-        int maxHp;
-        int hp;
+        hp = maxHp;
+        animator = GetComponent<Animator>();
+        rb = GetComponent<Rigidbody2D>();
+    }
 
-        private Animator animator;
+    protected void XAxesMove(float moveInput)
+    {
+        rb.velocity = new Vector2(moveInput * xAxesSpeed, rb.velocity.y);
 
-        public Character(string name, int maxHp)
+        if (facingRight == false && moveInput > 0)
         {
-            this.name = name;
-            this.maxHp = maxHp;
-
-            Initialize();
+            Flip();
         }
-
-        public void Initialize()
+        else if (facingRight == true && moveInput < 0)
         {
-            hp = maxHp;
-            animator = GetComponent<Animator>();
+            Flip();
         }
-
-        public void Atack()
+        if (moveInput == 0)
         {
-
+            animator.SetBool("isRunning", false);
         }
-
-        public void TakeDamage(int damage)
+        else
         {
-            hp -= damage;
-            if (hp <= 0)
-                Die();
+            animator.SetBool("isRunning", true);
         }
+    }
 
-        public void Die()
-        {
+    protected virtual void Atack()
+    {
+        animator.SetTrigger("attack1");
+    }
 
-        }
+    public virtual void TakeDamage(int damage)
+    {
+        Debug.Log($"{gameObject.name} с {hp} HP, получил {damage} урона");
+        hp -= damage;
+        if (hp <= 0)
+            Die();
+    }
+
+    protected void Die()
+    {
+        GameObject.Destroy(gameObject);
+    }
+
+    private void Flip()
+    {
+        facingRight = !facingRight;
+        Vector3 Scaler = transform.localScale;
+        Scaler.x *= -1;
+        transform.localScale = Scaler;
+    }
+
+    protected bool IsGrounded()
+    {
+        return Physics2D.OverlapCircle(transform.position, groundCheckRadius, groundMask);
     }
 }
 
