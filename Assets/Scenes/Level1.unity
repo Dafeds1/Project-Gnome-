@@ -1065,6 +1065,7 @@ GameObject:
   - component: {fileID: 114421621}
   - component: {fileID: 114421623}
   - component: {fileID: 114421624}
+  - component: {fileID: 114421622}
   m_Layer: 0
   m_Name: Bug
   m_TagString: Untagged
@@ -1092,6 +1093,25 @@ Transform:
   m_Father: {fileID: 1880966565}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 4.429}
+--- !u!95 &114421622
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 114421620}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c623ab98df683ae4a989448f8faee31d, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!50 &114421623
 Rigidbody2D:
   serializedVersion: 4
