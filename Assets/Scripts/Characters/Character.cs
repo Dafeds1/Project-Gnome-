@@ -23,7 +23,7 @@ public class Character : MonoBehaviour
     public void Initialize()
     {
         hp = maxHp;
-        animator = GetComponent<Animator>();
+        animator = GetComponentInChildren<Animator>();
         rb = GetComponent<Rigidbody2D>();
     }
 
