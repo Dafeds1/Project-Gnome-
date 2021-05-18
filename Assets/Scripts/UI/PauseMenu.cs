@@ -46,7 +46,7 @@ public class PauseMenu : MonoBehaviour
     public void StartMenu() 
     {
         Time.timeScale = 1;
-        SceneTransition.SwitchToScene("LevelStart");
+        SceneTransition.SwitchToScene("StartMenu");
     }
 
     // выход из игры

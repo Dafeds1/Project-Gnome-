@@ -38,12 +38,22 @@ public class Gnome : Character
         {
             Atack();
         }
+
+        if (Input.GetKeyDown(KeyCode.Mouse1))
+        {
+            Atack2();
+        }
     }
 
     protected override void Atack()
     {
         if (weapon1.Attack())
             base.Atack();
+    }
+
+    private void Atack2()
+    {
+        animator.SetTrigger("attack2");
     }
 
     public override void TakeDamage(int damage)
@@ -67,6 +77,7 @@ public class Gnome : Character
         else
         {
             animator.SetBool("isJumping", true);
+            animator.SetBool("isRunning", false);
         }
     }
 }
