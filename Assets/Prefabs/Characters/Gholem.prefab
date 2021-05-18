@@ -737,7 +737,7 @@ GameObject:
   - component: {fileID: 625156691826040792}
   - component: {fileID: 6197630854180564668}
   - component: {fileID: 5560221331940721820}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Gholem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -753,7 +753,7 @@ Transform:
   m_GameObject: {fileID: 8881257392959886380}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: -1, y: 1, z: 1}
   m_Children:
   - {fileID: 3560099255231841421}
   m_Father: {fileID: 0}
@@ -808,3 +808,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89ff08e4f860a2746a69baa72401cd68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  name: 
+  maxHp: 5
+  stunTimer: 0
+  isStun: 0
+  xAxesSpeed: 0
+  groundCheckRadius: 0
+  groundMask:
+    serializedVersion: 2
+    m_Bits: 0
+  animator: {fileID: 3560099255231841418}

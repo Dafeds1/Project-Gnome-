@@ -18,7 +18,10 @@ public class Weapon : MonoBehaviour
             cooldown -= Time.deltaTime;
 
             if (!IsCooldown())
+            {
                 isAtack = false;
+                cooldown = 0;
+            }
         }
     }
 
