@@ -30,7 +30,7 @@ public class Character : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
     }
 
-    protected void XAxesMove(float moveInput)
+    public void XAxesMove(float moveInput)
     {
         rb.velocity = new Vector2(moveInput * xAxesSpeed, rb.velocity.y);
 
@@ -52,7 +52,7 @@ public class Character : MonoBehaviour
         }
     }
 
-    protected virtual void Atack()
+    public virtual void Atack()
     {
         animator.SetTrigger("attack");
     }
