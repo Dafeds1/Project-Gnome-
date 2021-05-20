@@ -45,7 +45,7 @@ public class Gnome : Character
         }
     }
 
-    protected override void Atack()
+    public override void Atack()
     {
         if (weapon1.Attack())
             base.Atack();

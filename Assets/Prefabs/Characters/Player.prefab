@@ -1215,7 +1215,7 @@ GameObject:
   - component: {fileID: 1581418688659758604}
   - component: {fileID: 6495049938855644059}
   - component: {fileID: 749096279}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -1306,12 +1306,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 514b79df237bf0b40b31f5edcee401de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  name: 
   maxHp: 5
+  stunTimer: 0
+  isStun: 0
   xAxesSpeed: 5
   groundCheckRadius: 0.1
   groundMask:
     serializedVersion: 2
     m_Bits: 64
+  animator: {fileID: 0}
   jumpForce: 5
   collisionTester: {fileID: 2351549283487546397}
   weapon1: {fileID: 1189468011871409244}
