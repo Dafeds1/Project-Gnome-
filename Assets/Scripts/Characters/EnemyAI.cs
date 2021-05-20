@@ -11,10 +11,12 @@ public class EnemyAI : MonoBehaviour
     protected bool visible;
     protected bool angry;
     protected float distanceToPlayer;
+    protected Enemy enemy;
     private Transform player;
 
     protected void Initialize()
     {
+        enemy = GetComponent<Enemy>();
         player = GameObject.FindGameObjectsWithTag("Player")[0].transform;
     }
 

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GholemAI : EnemyAI
+public class BugAI : EnemyAI
 {
     private void Awake()
     {
