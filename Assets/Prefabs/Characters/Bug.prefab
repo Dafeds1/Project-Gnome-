@@ -98,8 +98,7 @@ MonoBehaviour:
     m_Bits: 64
   animator: {fileID: 6348559620879926046}
   healthBar: {fileID: 6026210917165906185}
-  projectile: {fileID: 6995097096951382780, guid: cbeaa6b29cf89e04c91ded738268eb78, type: 3}
-  projectileStartPos: {fileID: 4825701615435372756}
+  weapon: {fileID: 4851252234444502364}
 --- !u!114 &4756291392182294974
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -679,6 +678,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6348559620785953990}
   - component: {fileID: 6348559620785953991}
+  - component: {fileID: 4851252234444502364}
   m_Layer: 7
   m_Name: Head
   m_TagString: Untagged
@@ -752,6 +752,24 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &4851252234444502364
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6348559620785953989}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb9e47db3cbb89c48874cf559359339c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 1
+  cooldownTime: 3
+  targetLayerNumber: 10
+  projectile: {fileID: 6995097096951382780, guid: cbeaa6b29cf89e04c91ded738268eb78, type: 3}
+  projectileStartPos: {fileID: 4825701615435372756}
+  facingRight: 1
 --- !u!1 &6348559620879926044
 GameObject:
   m_ObjectHideFlags: 0

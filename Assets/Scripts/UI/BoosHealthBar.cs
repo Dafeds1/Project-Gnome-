@@ -3,12 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-// Отвечает за отоброжение количества жизней сцществ.
-public class EnemyHealthBar : HealthBar
+// Отвечает за отоброжение количества жизней Босса.
+public class BoosHealthBar : HealthBar
 {
     [SerializeField] private Slider healthSlider;    // полоска HP
-    [SerializeField] private GameObject healthPointImage;
-    [SerializeField] private Transform healthPointImageArea;
 
     // Меняет отображаемое количество здоровья
     public override void ChangeHealth(int healthCount)
@@ -20,11 +18,6 @@ public class EnemyHealthBar : HealthBar
     public override void Initialize(int maxHealth)
     {
         healthSlider.maxValue = maxHealth;
-
-        for (int i = 0; i < maxHealth - 1; i++)
-        {
-            GameObject go = Instantiate(healthPointImage, healthPointImageArea);
-        }
 
         base.Initialize(maxHealth);
     }

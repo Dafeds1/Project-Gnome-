@@ -7,11 +7,9 @@ public class Projectile : MonoBehaviour
     public int damage;
     public float projectileSpeed;
     public float lifetime;
-    public bool facingRight;
-
     public int targetLayerNumber;
 
-    public void Initialize()
+    public void Initialize(bool facingRight)
     {
         if (facingRight)
         {
@@ -37,8 +35,6 @@ public class Projectile : MonoBehaviour
     {
         if (collision.gameObject.layer.Equals(targetLayerNumber))
         {
-            Debug.Log("попал в " + collision.gameObject.name);
-
             collision.GetComponent<Character>().TakeDamage(damage);
 
             DestroyProjectile();

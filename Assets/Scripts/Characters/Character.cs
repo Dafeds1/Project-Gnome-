@@ -2,38 +2,38 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
-//  *** нужен енум side{ enemy ally neutral}
-// корневой класс всех существ
+// Родительский класс всех существ
 
 public class Character : MonoBehaviour
 {
-    public string name;
-    public int maxHp;
-    public int hp { get; protected set;}
-    public float stunTimer = 0;
-    public bool isStun = false;
+    public virtual bool facingRight { get; protected set; } = true;         // Развернут ли персонаж в правую сторону
+    [SerializeField] private float xAxesSpeed;                              // Скорость перемещения по горизонтали
+    [SerializeField] private float groundCheckRadius = 0.01F;               // Радиус проверки касания земли
+    [SerializeField] protected LayerMask groundMask;                        // Маска слове, для проверки касания земли
+    [SerializeField] protected Animator animator;                           // Ссылка на аниматор
+    protected Rigidbody2D rb;                                               // Ссылка на rigidbody
 
-    public bool facingRight { get; private set; } = true;
-    public float xAxesSpeed;
-    public float groundCheckRadius;
-    public LayerMask groundMask;
-    public Animator animator;
+    [SerializeField] protected int maxHp;                                   // Максимульное здоровье
+    protected int currentHp;                                                // Текущие здоровье
 
-    protected Rigidbody2D rb;
+    protected float stunTimer = 0;                                          // Таймер оглушения и процего бездействия
+    public bool isStun { get; protected set; } = false;                     // В стане ли персонаж
 
-    public void Initialize()
+    // Инициализация, получаем ссылки на аниматор и rigidbody
+    protected virtual void Initialize()
     {
-        hp = maxHp;
         if (animator == null)
             animator = GetComponentInChildren<Animator>();
+
         rb = GetComponent<Rigidbody2D>();
     }
 
+    // Движение по горезонтали
     public void XAxesMove(float moveInput)
     {
         rb.velocity = new Vector2(moveInput * xAxesSpeed, rb.velocity.y);
 
+        // Разворачиваем персонажа если начинает движение в другую сторону
         if (facingRight == false && moveInput > 0)
         {
             Flip();
@@ -42,6 +42,8 @@ public class Character : MonoBehaviour
         {
             Flip();
         }
+
+        // Включаем анимацию ходьбы, когда движемся по земле.
         if (moveInput == 0)
         {
             animator.SetBool("isRunning", false);
@@ -57,23 +59,46 @@ public class Character : MonoBehaviour
         animator.SetTrigger("attack");
     }
 
+    // Получение урона, если жизней ноль, то смерть.
     public virtual void TakeDamage(int damage)
     {
-        Debug.Log($"{gameObject.name} с {hp} HP, получил {damage} урона");
-        hp -= damage;
+        Debug.Log($"{gameObject.name} с {currentHp} HP, получил {damage} урона");// ***
+        currentHp -= damage;
         animator.SetTrigger("takeDamage");
-        if (hp <= 0)
+        if (currentHp <= 0)
             Die();
     }
 
     protected void Die()
     {
-        if (animator == null)
-            Debug.Log("Жопа!!");
+        TakeStun(300);
         animator.SetTrigger("dying");
-        //GameObject.Destroy(gameObject);       //  *** удаляет обект сразу, не дожидаясь окончания анимации
+        //GameObject.Destroy(gameObject);       //  *** запускать уничтожение объекта нужно из аниматора    ***
     }
 
+    public void TakeStun(float stunTime)
+    {
+        isStun = true;
+        stunTimer = stunTime;
+    }
+
+    // Отсчитывает стан таймер и возвращает правду, если персонаж остался в стане.
+    public bool IsStun()
+    {
+        if (isStun)
+        {
+            stunTimer -= Time.deltaTime;
+            if(!(stunTimer > 0))
+            {
+                isStun = false;
+                stunTimer = 0;
+            }
+        }
+
+        return isStun;
+    }
+
+    // Разворот персонажа, обычно в сторону движения.
     private void Flip()
     {
         facingRight = !facingRight;
@@ -82,24 +107,10 @@ public class Character : MonoBehaviour
         transform.localScale = Scaler;
     }
 
+    // Проверка, наземле ли песонаж.
     protected bool IsGrounded()
     {
         return Physics2D.OverlapCircle(transform.position, groundCheckRadius, groundMask);
-    }
-
-    protected bool IsStun()
-    {
-        if (isStun)
-        {
-            stunTimer -= Time.deltaTime;
-            if(stunTimer <= 0)
-            {
-                isStun = false;
-                stunTimer = 0;
-            }
-        }
-
-        return isStun;
     }
 }
 

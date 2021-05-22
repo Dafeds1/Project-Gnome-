@@ -6,30 +6,15 @@ public class Weapon : MonoBehaviour
 {
     public int damage;
     public float cooldownTime;
-    public bool isAtack;
     public int targetLayerNumber;
 
-    private float cooldown = 0;
+    protected float cooldown = 0;
 
-    private void Update()
-    {
-        if (IsCooldown())
-        {
-            cooldown -= Time.deltaTime;
-
-            if (!IsCooldown())
-            {
-                isAtack = false;
-                cooldown = 0;
-            }
-        }
-    }
-
-    public bool Attack()
+    public bool TryAttack()
     {
         if (!IsCooldown())
         {
-            isAtack = true;
+            Attack();
             cooldown = cooldownTime;
             return true;
         }
@@ -37,19 +22,12 @@ public class Weapon : MonoBehaviour
             return false;
     }
 
-    private bool IsCooldown()
+    protected virtual void Attack()
     {
-        return cooldown > 0;
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    protected virtual bool IsCooldown()
     {
-        if (isAtack && collision.gameObject.layer.Equals(targetLayerNumber))
-        {
-            Debug.Log("попал в "+collision.gameObject.name);
-            collision.GetComponent<Character>().TakeDamage(damage);
-
-            isAtack = false;
-        }
+        return cooldown > 0;
     }
 }
