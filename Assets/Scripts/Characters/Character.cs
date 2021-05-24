@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 
 // –одительский класс всех существ
-
 public class Character : MonoBehaviour
 {
     public virtual bool facingRight { get; protected set; } = true;         // –азвернут ли персонаж в правую сторону

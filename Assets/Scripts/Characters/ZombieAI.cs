@@ -2,8 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-// AI Голема, наследуется от EnemyAI
-public class GholemAI : EnemyAI
+// AI Зомби, наследуется от EnemyAI
+public class ZombieAI : EnemyAI
 {
     private void Awake()
     {
@@ -26,13 +26,12 @@ public class GholemAI : EnemyAI
         }
         else
         {
-            enemy.XAxesMove(0);//   *** нужно вывести в EnemyAI (или даже в Charackter) переменую isMoving, что бы не передовать каждый раз ноль... это это может не помочь, передать один раз ноль может быть недостаточно ***
+            enemy.XAxesMove(0);//   *** нужно вывести в EnemyAI переменую isMoving, что бы не передовать каждый раз ноль... это это может не помочь, передать один раз ноль может быть недостаточно ***
         }
     }
 
-    
     private void FixedUpdate()
     {
-        IsAngri(); // Проверка на активацию моба
+        IsAngri(); // Проверка на активацию зомби
     }
 }

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// AI Жука, наследуется от EnemyAI
 public class BugAI : EnemyAI
 {
     private void Awake()
@@ -10,6 +11,7 @@ public class BugAI : EnemyAI
     }
     void Update()
     {
+        // Атакует если достаточно близко, иначе двигается к игроку.
         if (angry)
         {
             if (distanceToPlayer < atackDistance)
@@ -30,6 +32,6 @@ public class BugAI : EnemyAI
 
     private void FixedUpdate()
     {
-        IsAngri();
+        IsAngri(); // Проверка на активацию жука
     }
 }

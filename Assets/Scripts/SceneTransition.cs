@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 // Отвечает за переход между уровнями с анимацией затемнения экрана
 public class SceneTransition : MonoBehaviour
 {
-    public static AsyncOperation loadingSceneOperation; //  публичная ссылка на прогресс загрузки, восновдном для отдельного прогрессбара
+    public static AsyncOperation loadingSceneOperation; //  Публичная ссылка на прогресс загрузки, восновдном для отдельного прогрессбара
 
     private static SceneTransition instance;            //  Синглтон, для публичного статического метода смены сцены
     private static bool shuldPlayBleckout = false;      //  Запускать ли анимацию расцеватия экрана, что бы не запускался на стартовой сцене
@@ -39,6 +39,7 @@ public class SceneTransition : MonoBehaviour
         shuldPlayBleckout = true;
         loadingSceneOperation.allowSceneActivation = true;
     }
+
     /*
     // Сброс тригера запуска анимации расцеветания экрана, почему то этот тригер не сбрасывается сам, делаем это в конце самой анимации
     public void OffAnimatoinOver() 

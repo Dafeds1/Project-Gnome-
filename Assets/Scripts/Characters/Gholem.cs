@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-// Класс описывает все возожности Голема
+// Класс описывает все возожности Голема, отличные от родительского класса
 public class Gholem : Enemy
 {
     private void Awake()

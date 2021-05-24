@@ -12,8 +12,8 @@ public class CameraController : MonoBehaviour
 
     public float dumping = 1.5f;                    // Сила смягчения движения
     public Vector2 offset = new Vector2(2f, 3f);    // Смещение центра камеры от игрока
-    private Transform playerTransform;                       // Трансформ игрока
-    private Gnome player;
+    private Transform playerTransform;              // Трансформ игрока
+    private Gnome player;                           // Ссылка на игрока
 
     private void Start()
     {

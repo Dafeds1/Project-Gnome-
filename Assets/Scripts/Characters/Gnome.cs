@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-// Главный герой. описывает все его возможности + управление
+// Главный герой. описывает все его возможности + управление, отличные от родительского класса
 public class Gnome : Character
 {
     [SerializeField] private float jumpForce;                   // Сила прыжка.
@@ -14,6 +14,10 @@ public class Gnome : Character
     private void Awake()
     {
         Initialize();
+    }
+
+    private void Start()
+    {
         // заполняем персональную шкалу здоровья главного героя, такая одна на сцене
         PlayerHealthBar.instance.Initialize(maxHp);
     }
@@ -21,17 +25,13 @@ public class Gnome : Character
     private void FixedUpdate()
     {
         // персонаж перемещается если нет столкнавения вполете и нажаты соответствуеюие калвиши
-        float horizontalMove = Input.GetAxis("Horizontal");
-        if (horizontalMove != 0)
+        if (!isGrounded && collisionTester.collisionCount >= 1)
         {
-            if (!isGrounded && collisionTester.collisionCount >= 1)
-            {
-                XAxesMove(0);
-            }
-            else
-            {
-                XAxesMove(horizontalMove);
-            }
+            XAxesMove(0);
+        }
+        else
+        {
+            XAxesMove(Input.GetAxis("Horizontal"));
         }
     }
 
