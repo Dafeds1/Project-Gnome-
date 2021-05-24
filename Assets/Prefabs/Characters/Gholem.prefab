@@ -858,7 +858,7 @@ MonoBehaviour:
   maxHp: 5
   stunTimer: 0
   isStun: 0
-  xAxesSpeed: 4
+  xAxesSpeed: 3
   groundCheckRadius: 0.1
   groundMask:
     serializedVersion: 2
