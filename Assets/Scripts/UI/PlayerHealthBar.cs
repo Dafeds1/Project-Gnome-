@@ -23,6 +23,7 @@ public class PlayerHealthBar : HealthBar
 
     public override void Initialize(int maxHealth)
     {
+        // Создаем картинки для отображения хп(количество зависит от макс хп)и получаем на них ссылки в массив.
         healths = new List<Image>();
         for (int i = 0; i < maxHealth; i++)
         {

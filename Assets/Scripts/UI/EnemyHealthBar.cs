@@ -6,9 +6,9 @@ using UnityEngine.UI;
 // Отвечает за отоброжение количества жизней сцществ.
 public class EnemyHealthBar : HealthBar
 {
-    [SerializeField] private Slider healthSlider;    // полоска HP
-    [SerializeField] private GameObject healthPointImage;
-    [SerializeField] private Transform healthPointImageArea;
+    [SerializeField] private Slider healthSlider;               // Полоска HP
+    [SerializeField] private GameObject healthPointImage;       // Картинки ячеек здоровья
+    [SerializeField] private Transform healthPointImageArea;    // Ссылка на родительский обект для ячеек хп
 
     // Меняет отображаемое количество здоровья
     public override void ChangeHealth(int healthCount)

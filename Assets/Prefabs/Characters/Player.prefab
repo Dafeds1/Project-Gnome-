@@ -1306,16 +1306,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 514b79df237bf0b40b31f5edcee401de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: 
-  maxHp: 5
-  stunTimer: 0
-  isStun: 0
   xAxesSpeed: 5
   groundCheckRadius: 0.1
   groundMask:
     serializedVersion: 2
     m_Bits: 64
   animator: {fileID: 0}
+  maxHp: 3
   jumpForce: 5
   collisionTester: {fileID: 2351549283487546397}
   weapon1: {fileID: 3306733034856942180}

@@ -173,7 +173,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 0
+  m_PresetInfoIsWorld: 1
 --- !u!114 &2929300199888898303
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -203,8 +203,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d095eac03b502c43b48321be6ddba29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxtHeatlh: 5
-  healths: {fileID: 3153965238032078180}
+  maxHealth: 0
+  healthSlider: {fileID: 3153965238032078180}
   healthPointImage: {fileID: 6954453664992757160}
   healthPointImageArea: {fileID: 7105367406222160335}
 --- !u!1 &4296471362063440376
