@@ -35,6 +35,7 @@ Transform:
   - {fileID: 6348559620879926045}
   - {fileID: 5785308243439257015}
   - {fileID: 4825701615435372756}
+  - {fileID: 7705644946921731997}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -51,7 +52,7 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.03, y: 0.05757755}
+  m_Offset: {x: 0, y: 0.05757755}
   serializedVersion: 2
   m_Radius: 0.37401402
 --- !u!50 &8399199220332147781
@@ -87,18 +88,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc30223d3edfc33499b7ce803c680588, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: Bug
-  maxHp: 3
-  stunTimer: 0
-  isStun: 0
   xAxesSpeed: 5
-  groundCheckRadius: 0.1
+  groundCheckerRadius: 0.38
+  groundChckerPos: {fileID: 7705644946921731997}
   groundMask:
     serializedVersion: 2
     m_Bits: 64
   animator: {fileID: 6348559620879926046}
-  healthBar: {fileID: 6026210917165906185}
+  maxHp: 3
   weapon: {fileID: 4851252234444502364}
+  healthBar: {fileID: 6026210917165906185}
 --- !u!114 &4756291392182294974
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -765,7 +764,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
-  cooldownTime: 3
+  cooldown: 5
   targetLayerNumber: 10
   projectile: {fileID: 6995097096951382780, guid: cbeaa6b29cf89e04c91ded738268eb78, type: 3}
   projectileStartPos: {fileID: 4825701615435372756}
@@ -795,7 +794,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6348559620879926044}
   m_LocalRotation: {x: -0, y: -0, z: 0.038641676, w: 0.99925315}
-  m_LocalPosition: {x: 0.11054802, y: 0.18054771, z: 0}
+  m_LocalPosition: {x: 0.17, y: 0.18054771, z: 0}
   m_LocalScale: {x: 0.17794919, y: 0.17794919, z: 0.1779492}
   m_Children:
   - {fileID: 6348559620785953990}
@@ -937,6 +936,36 @@ Transform:
   m_Children: []
   m_Father: {fileID: 5476291404970714678}
   m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &8267440095104656262
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7705644946921731997}
+  m_Layer: 0
+  m_Name: GroundChecer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7705644946921731997
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8267440095104656262}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 5476291404970714678}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &7932643273684572944
 PrefabInstance:

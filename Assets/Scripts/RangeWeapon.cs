@@ -9,6 +9,11 @@ public class RangeWeapon : Weapon
     public Transform projectileStartPos;    // Позиция для запуска снаряда.
     public bool facingRight;                // Направление снаряда.
 
+    private void Update()
+    {
+        CooldownTimerStap();
+    }
+
     // Атака, созадние снаряда и передача ему необходимых данных
     protected override void Attack()
     {

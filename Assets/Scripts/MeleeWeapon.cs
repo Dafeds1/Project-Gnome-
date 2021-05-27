@@ -9,18 +9,7 @@ public class MeleeWeapon : Weapon
 
     private void Update()
     {
-        // Если в кулауне, сокращаем таймер кулдауна
-        if (IsCooldown())
-        {
-            cooldown -= Time.deltaTime;
-
-            // Если после сокращения таймера, кулдаун спал, умераем активацию атаки.
-            if (!IsCooldown())
-            {
-                isAtack = false;
-                cooldown = 0;
-            }
-        }
+        CooldownTimerStap();
     }
 
     // Во время атаки, активируем атаку

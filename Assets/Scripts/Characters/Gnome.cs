@@ -20,10 +20,15 @@ public class Gnome : Character
     {
         // заполняем персональную шкалу здоровья главного героя, такая одна на сцене
         PlayerHealthBar.instance.Initialize(maxHp);
+        currentHp = maxHp;// *** исправить на загрузку, в место полного заполнения   ***
+        PlayerHealthBar.instance.ChangeHealth(currentHp);
     }
 
     private void FixedUpdate()
     {
+        if (isStun)
+            return;
+
         // персонаж перемещается если нет столкнавения вполете и нажаты соответствуеюие калвиши
         if (!isGrounded && collisionTester.collisionCount >= 1)
         {
@@ -37,6 +42,11 @@ public class Gnome : Character
 
     private void Update()
     {
+        if (isStun)
+            return;
+        else
+            StunTimerStap();
+
         isGrounded = IsGrounded();// обновляем переменную проверки, на замле ли персонаж
 
         Jump();// попытка прыжка
