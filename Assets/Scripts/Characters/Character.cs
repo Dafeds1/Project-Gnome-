@@ -8,7 +8,7 @@ public class Character : MonoBehaviour
     public virtual bool facingRight { get; protected set; } = true;         // Развернут ли персонаж в правую сторону
     [SerializeField] private float xAxesSpeed;                              // Скорость перемещения по горизонтали
     [SerializeField] private float groundCheckerRadius = 0.01F;             // Радиус проверки касания земли
-    [SerializeField] private Transform groundChckerPos;                     // Позиция крука для проверки наземле ли персонаж 
+    [SerializeField] private Transform groundChckerPos;                    // Позиция крука для проверки наземле ли персонаж 
     [SerializeField] protected LayerMask groundMask;                        // Маска слове, для проверки касания земли
     [SerializeField] protected Animator animator;                           // Ссылка на аниматор
     protected Rigidbody2D rb;                                               // Ссылка на rigidbody
