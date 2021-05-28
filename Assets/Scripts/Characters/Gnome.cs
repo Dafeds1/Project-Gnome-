@@ -2,12 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// √лавный герой. описывает все его возможности + управление, отличные от родительского класса
 public class Gnome : Character
 {
-    public float jumpForce;
+    [SerializeField] private float jumpForce;                   // —ила прыжка.
 
-    [SerializeField] private CollisionTester collisionTester;
-    [SerializeField] private Weapon weapon1;
+    [SerializeField] private CollisionTester collisionTester;   // —сылка на объект, провер€ющий столкнавени€, что бы не застривать в полете.
+    [SerializeField] private Weapon weapon1;                    // —сылка на первое оружие, кирка.
     private bool isGrounded;
 
     private void Awake()
@@ -15,9 +16,20 @@ public class Gnome : Character
         Initialize();
     }
 
+    private void Start()
+    {
+        // заполн€ем персональную шкалу здоровь€ главного геро€, така€ одна на сцене
+        PlayerHealthBar.instance.Initialize(maxHp);
+        currentHp = maxHp;// *** исправить на загрузку, в место полного заполнени€   ***
+        PlayerHealthBar.instance.ChangeHealth(currentHp);
+    }
+
     private void FixedUpdate()
     {
-        //
+        if (isStun)
+            return;
+
+        // персонаж перемещаетс€ если нет столкнавени€ вполете и нажаты соответствуеюие калвиши
         if (!isGrounded && collisionTester.collisionCount >= 1)
         {
             XAxesMove(0);
@@ -30,15 +42,22 @@ public class Gnome : Character
 
     private void Update()
     {
-        isGrounded = IsGrounded();
+        if (isStun)
+            return;
+        else
+            StunTimerStap();
 
-        Jump();
+        isGrounded = IsGrounded();// обновл€ем переменную проверки, на замле ли персонаж
 
+        Jump();// попытка прыжка
+
+        // попытка атак киркой
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
             Atack();
         }
 
+        // попытка дополнительной атак
         if (Input.GetKeyDown(KeyCode.Mouse1))
         {
             Atack2();
@@ -47,7 +66,7 @@ public class Gnome : Character
 
     public override void Atack()
     {
-        if (weapon1.Attack())
+        if (weapon1.TryAttack())
             base.Atack();
     }
 
@@ -56,12 +75,14 @@ public class Gnome : Character
         animator.SetTrigger("attack2");
     }
 
+    // ѕерсонаж получает урон и отображаем текущее количество здоровь€
     public override void TakeDamage(int damage)
     {
         base.TakeDamage(damage);
-        HealthBar.instance.ChangeHaelth(hp);
+        PlayerHealthBar.instance.ChangeHealth(currentHp);
     }
 
+    // ѕерсонаж прыгает, если на земле и нажата кнопка прыжка.
     private void Jump()
     {
         if (isGrounded == true)

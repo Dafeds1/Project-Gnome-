@@ -2,54 +2,48 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// Родительский объект вариантов оружия
 public class Weapon : MonoBehaviour
 {
-    public int damage;
-    public float cooldownTime;
-    public bool isAtack;
-    public int targetLayerNumber;
+    public int damage;                          // Количество наносимого урона оружием.
+    public float cooldown;                      // Время перезарядки оружия.
+    public int targetLayerNumber;               // Номер целевого слоя, для урона.
+    public bool isCooldown { get; private set;} // в перезарядке ли оружие
 
-    private float cooldown = 0;
+    protected float cooldownTime = 0;           // Текущие значение кулдауна
 
-    private void Update()
+    // Попытка атаки
+    public bool TryAttack()
     {
-        if (IsCooldown())
+        // Если не в кулдауне то активируем атаку
+        if (!isCooldown)
         {
-            cooldown -= Time.deltaTime;
-
-            if (!IsCooldown())
-            {
-                isAtack = false;
-                cooldown = 0;
-            }
-        }
-    }
-
-    public bool Attack()
-    {
-        if (!IsCooldown())
-        {
-            isAtack = true;
-            cooldown = cooldownTime;
+            Attack();
+            cooldownTime = cooldown;
+            isCooldown = true;
             return true;
         }
         else
             return false;
     }
 
-    private bool IsCooldown()
+    // Атака, запускать только когда это зозможно!
+    protected virtual void Attack()
     {
-        return cooldown > 0;
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    protected void CooldownTimerStap()
     {
-        if (isAtack && collision.gameObject.layer.Equals(targetLayerNumber))
+        if (isCooldown)
         {
-            Debug.Log("попал в "+collision.gameObject.name);
-            collision.GetComponent<Character>().TakeDamage(damage);
+            cooldownTime -= Time.deltaTime;
 
-            isAtack = false;
+            // Если после сокращения таймера, кулдаун спал, умераем активацию атаки.
+            if (!(cooldownTime > 0))
+            {
+                cooldownTime = 0;
+                isCooldown = false;
+            }
         }
     }
 }

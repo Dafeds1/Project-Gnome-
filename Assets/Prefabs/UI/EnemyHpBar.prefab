@@ -127,7 +127,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 2.88}
+  m_AnchoredPosition: {x: 0, y: 2.880005}
   m_SizeDelta: {x: 1920, y: 1080}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &8524117850995052920
@@ -203,7 +203,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d095eac03b502c43b48321be6ddba29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healths: {fileID: 3153965238032078180}
+  maxHealth: 0
+  healthSlider: {fileID: 3153965238032078180}
   healthPointImage: {fileID: 6954453664992757160}
   healthPointImageArea: {fileID: 7105367406222160335}
 --- !u!1 &4296471362063440376
@@ -264,7 +265,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.5283019, g: 0.36632255, b: 0.36632255, a: 1}
+  m_Color: {r: 0.22745098, g: 0.1254902, b: 0.1254902, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -314,7 +315,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.25}
   m_AnchorMax: {x: 1, y: 0.75}
-  m_AnchoredPosition: {x: -5, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: -20, y: 24}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &6322453515137136955
@@ -489,8 +490,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 4.900818, y: 0}
-  m_SizeDelta: {x: 19.8015, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7953476992453061116
 CanvasRenderer:

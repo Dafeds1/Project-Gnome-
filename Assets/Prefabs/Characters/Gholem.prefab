@@ -315,7 +315,7 @@ GameObject:
   - component: {fileID: 3560099256798006523}
   - component: {fileID: 3560099256798006522}
   - component: {fileID: 3203242733594099277}
-  - component: {fileID: 4430749129526884977}
+  - component: {fileID: 5773307809830216297}
   m_Layer: 0
   m_Name: Arm2
   m_TagString: Untagged
@@ -413,7 +413,7 @@ EdgeCollider2D:
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0
   m_UseAdjacentEndPoint: 0
---- !u!114 &4430749129526884977
+--- !u!114 &5773307809830216297
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -422,13 +422,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 3560099256798006524}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2bfa5ec7b3a701b4f8d5d56484f5fcd8, type: 3}
+  m_Script: {fileID: 11500000, guid: 1f6a46998b514334b89f8a51d6164dd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
   cooldownTime: 2
+  targetLayerNumber: 10
   isAtack: 0
-  targetLayerNumber: 0
 --- !u!1 &3560099256848756625
 GameObject:
   m_ObjectHideFlags: 0
@@ -864,7 +864,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   animator: {fileID: 3560099255231841418}
-  weapon: {fileID: 4430749129526884977}
+  weapon: {fileID: 5773307809830216297}
   healthBar: {fileID: 6119398345810511628}
 --- !u!114 &5139021530879822860
 MonoBehaviour:

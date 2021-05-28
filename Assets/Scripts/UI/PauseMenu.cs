@@ -27,7 +27,7 @@ public class PauseMenu : MonoBehaviour
         }
     }
 
-    // возврат из паузы
+    // Возврат из паузы
     public void Resume()
     {
         pauseMenuUI.SetActive(false);
@@ -49,13 +49,13 @@ public class PauseMenu : MonoBehaviour
         SceneTransition.SwitchToScene("StartMenu");
     }
 
-    // выход из игры
+    // Выход из игры
     public void QuitGame()
     {
         Application.Quit();
     }
 
-    // переход в паузу
+    // Переход в паузу
     private void Pause()
     {
         pauseMenuUI.SetActive(true);

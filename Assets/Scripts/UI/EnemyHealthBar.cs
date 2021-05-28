@@ -3,27 +3,29 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class EnemyHealthBar : MonoBehaviour
+// Отвечает за отоброжение количества жизней сцществ.
+public class EnemyHealthBar : HealthBar
 {
-    public int maxtHeatlh = 5;
-    [SerializeField] private Slider healths;    // полоска HP
-    [SerializeField] private GameObject healthPointImage;
-    [SerializeField] private Transform healthPointImageArea;
+    [SerializeField] private Slider healthSlider;               // Полоска HP
+    [SerializeField] private GameObject healthPointImage;       // Картинки ячеек здоровья
+    [SerializeField] private Transform healthPointImageArea;    // Ссылка на родительский обект для ячеек хп
 
     // Меняет отображаемое количество здоровья
-    public void ChangeHaelth(int healthCount)
+    public override void ChangeHealth(int healthCount)
     {
-        healths.value = healthCount;
+        healthSlider.value = healthCount;
     }
 
-    public void Initialize()
+    // Инициализация, запускаетя из вне, задает максимальное здоровье и отображает его
+    public override void Initialize(int maxHealth)
     {
-        for (int i = 0; i < maxtHeatlh - 1; i++)
+        healthSlider.maxValue = maxHealth;
+
+        for (int i = 0; i < maxHealth - 1; i++)
         {
             GameObject go = Instantiate(healthPointImage, healthPointImageArea);
         }
 
-        healths.maxValue = maxtHeatlh;
-        ChangeHaelth(maxtHeatlh);   // *** Нужно ли? где будет загрузка текущего количества здоровья, при старте сцены? ***
+        base.Initialize(maxHealth);
     }
 }

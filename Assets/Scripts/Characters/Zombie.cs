@@ -2,19 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// Класс описывает все возожности Зомби, отличные от родительского класса
 public class Zombie : Character
 {
-    [SerializeField] private EnemyHealthBar helthBar;
-
     private void Awake()
     {
         Initialize();
-        helthBar = GetComponentInChildren<EnemyHealthBar>();
-    }
-
-    public override void TakeDamage(int damage)
-    {
-        base.TakeDamage(damage);
-        helthBar.ChangeHaelth(hp);
     }
 }
