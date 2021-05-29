@@ -12,9 +12,10 @@ public class BugAI : EnemyAI
     void Update()
     {
         if (enemy.isStun)
+        {
+            enemy.StunTimerStep();
             return;
-        else
-            enemy.StunTimerStap();
+        }
 
         // Атакует если достаточно близко, иначе двигается к игроку.
         if (angry)

@@ -12,9 +12,10 @@ public class GholemAI : EnemyAI
     void Update()
     {
         if (enemy.isStun)
+        {
+            enemy.StunTimerStep();
             return;
-        else
-            enemy.StunTimerStap();
+        }
 
         // Атакует если достаточно близко, иначе двигается к игроку.
         if (angry)
@@ -39,7 +40,6 @@ public class GholemAI : EnemyAI
 
         enemy.XAxesMove(0);//   *** нужно вывести в EnemyAI (или даже в Charackter) переменую isMoving, что бы не передовать каждый раз ноль... это это может не помочь, передать один раз ноль может быть недостаточно ***
     }
-
     
     private void FixedUpdate()
     {

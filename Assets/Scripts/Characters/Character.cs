@@ -15,7 +15,7 @@ public class Character : MonoBehaviour
     protected int currentHp;                                                // Текущие здоровье
 
     protected float stunTimer = 0;                                          // Таймер оглушения и процего бездействия
-    public bool isStun { get; protected set; } = false;                     // В стане ли персонаж
+    public bool isStun;// { get; protected set; } = false;                     // В стане ли персонаж
 
     // Инициализация, получаем ссылки на аниматор и rigidbody
     protected virtual void Initialize()
@@ -76,12 +76,14 @@ public class Character : MonoBehaviour
 
     public void TakeStun(float stunTime)
     {
+        rb.velocity = Vector2.zero;
+
         isStun = true;
         stunTimer = stunTime;
     }
 
     // Отсчитывает стан таймер и возвращает правду, если персонаж остался в стане.
-    public void StunTimerStap()
+    public void StunTimerStep()
     {
         if (isStun)
         {

@@ -46,9 +46,10 @@ public class Gnome : Character
     private void Update()
     {
         if (isStun)
+        {
+            StunTimerStep();
             return;
-        else
-            StunTimerStap();
+        }
 
         IsGrounded();// обновляем переменную проверки, на замле ли персонаж
 
@@ -84,6 +85,33 @@ public class Gnome : Character
     {
         base.TakeDamage(damage);
         PlayerHealthBar.instance.ChangeHealth(currentHp);
+    }
+
+    public void Healthing(int healthingPoint)
+    {
+        if (currentHp < maxHp)
+        {
+            currentHp += healthingPoint;
+
+            if (currentHp > maxHp)
+                currentHp = maxHp;
+
+            PlayerHealthBar.instance.ChangeHealth(currentHp);
+        }
+    }
+
+    protected override void Die()
+    {
+        GetComponent<Rigidbody2D>().isKinematic = true;
+        Destroy(GetComponent<Rigidbody2D>());
+
+        GetComponent<Collider2D>().enabled = false;
+
+        this.enabled = false;
+
+        base.Die();
+
+        PauseMenu.instance.Die();
     }
 
     // Персонаж прыгает, если на земле и нажата кнопка прыжка.
