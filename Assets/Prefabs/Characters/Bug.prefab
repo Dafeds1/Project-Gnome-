@@ -35,7 +35,6 @@ Transform:
   - {fileID: 6348559620879926045}
   - {fileID: 5785308243439257015}
   - {fileID: 4825701615435372756}
-  - {fileID: 7705644946921731997}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -89,11 +88,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   xAxesSpeed: 5
-  groundCheckerRadius: 0.38
-  groundChckerPos: {fileID: 7705644946921731997}
-  groundMask:
-    serializedVersion: 2
-    m_Bits: 64
   animator: {fileID: 6348559620879926046}
   maxHp: 3
   weapon: {fileID: 4851252234444502364}
@@ -111,7 +105,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   angryDistance: 10
-  atackDistance: 5
+  attackDistance: 0
 --- !u!212 &1243817224940520503
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -768,7 +762,6 @@ MonoBehaviour:
   targetLayerNumber: 10
   projectile: {fileID: 6995097096951382780, guid: cbeaa6b29cf89e04c91ded738268eb78, type: 3}
   projectileStartPos: {fileID: 4825701615435372756}
-  facingRight: 1
 --- !u!1 &6348559620879926044
 GameObject:
   m_ObjectHideFlags: 0
@@ -937,36 +930,6 @@ Transform:
   m_Father: {fileID: 5476291404970714678}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &8267440095104656262
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 7705644946921731997}
-  m_Layer: 0
-  m_Name: GroundChecer
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &7705644946921731997
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8267440095104656262}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 5476291404970714678}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &7932643273684572944
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1076,7 +1039,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4494559671600438951, guid: b488fd8b37f84b54aa4d78f87933ab40, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0.927
+      value: 1.02
       objectReference: {fileID: 0}
     - target: {fileID: 4494559671600438951, guid: b488fd8b37f84b54aa4d78f87933ab40, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x

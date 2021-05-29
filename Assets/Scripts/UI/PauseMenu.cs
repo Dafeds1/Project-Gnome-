@@ -8,9 +8,22 @@ using UnityEngine;
 // для анемированного меню нужно выбрать Unscaled Time, Update Mode в Аниматоре, что бы на него не действовала остоновка времени !!!
 public class PauseMenu : MonoBehaviour
 {
-    public static bool gameIsPaused = false;
+    public static bool gameIsPaused = false;                // В паузе или нет
 
-    public GameObject pauseMenuUI;
+    [SerializeField] private GameObject pauseMenuUI;        // Ссылка на меню паузы
+    [SerializeField] private GameObject deathMenuUI;        // Ссылка на меню смерти
+
+    public static PauseMenu instance;                       // Синглтон
+
+    private void Awake()
+    {
+        // если объектов с этим скриптом больее одного, уничтожаем
+        if (instance)
+            GameObject.Destroy(gameObject);
+        else
+            instance = this;
+    }
+
     private void Update()
     {
         // Вкл/выкл паузы по ескейпу
@@ -61,5 +74,11 @@ public class PauseMenu : MonoBehaviour
         pauseMenuUI.SetActive(true);
         Time.timeScale = 0;
         gameIsPaused = true;
+    }
+
+    public void Die()
+    {
+        deathMenuUI.SetActive(true);
+        Time.timeScale = 0.5f;
     }
 }

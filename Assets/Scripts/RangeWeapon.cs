@@ -7,11 +7,17 @@ public class RangeWeapon : Weapon
 {
     public GameObject projectile;           // Префаб снаряда.
     public Transform projectileStartPos;    // Позиция для запуска снаряда.
-    public bool facingRight;                // Направление снаряда.
+
+    private Character chr;                  // Ссылка на персонажа, носителя оружия.
+
+    private void Start()
+    {
+        chr = GetComponentInParent<Character>();
+    }
 
     private void Update()
     {
-        CooldownTimerStap();
+        CooldownTimerStep();
     }
 
     // Атака, созадние снаряда и передача ему необходимых данных
@@ -19,6 +25,6 @@ public class RangeWeapon : Weapon
     {
         GameObject go = Instantiate(projectile);
         go.transform.position = projectileStartPos.position;
-        go.GetComponent<Projectile>().Initialize(facingRight);
+        go.GetComponent<Projectile>().Initialize(chr.facingRight);
     }
 }

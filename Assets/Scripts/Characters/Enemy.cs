@@ -5,8 +5,8 @@ using UnityEngine;
 // Родительский класс всех врагов, описывающие их возможности
 public class Enemy : Character
 {
-    [SerializeField] protected Weapon weapon;               // Ссылка на оружие
-    [SerializeField] protected EnemyHealthBar healthBar;    // Ссылка на шкалу здоровья
+    public Weapon weapon;                                           // Ссылка на оружие
+    [SerializeField] protected EnemyHealthBar healthBar;            // Ссылка на шкалу здоровья
 
     // Возможно стоит переписать перемещение по Х, с разгоном и замедлением, просто выбаром влево и вправо...   ****
 
@@ -20,11 +20,11 @@ public class Enemy : Character
     }
 
     // Попытка атаки
-    public override void Atack()
+    public override void Attack()
     {
         // Атакует имеющимся оружием, если есть возможность
         if (weapon.TryAttack())
-            base.Atack();
+            base.Attack();
     }
 
     // Персонаж получает урон, если выживает, отображаем текущие хп
@@ -33,5 +33,20 @@ public class Enemy : Character
         base.TakeDamage(damage);
 
         healthBar.ChangeHealth(currentHp);
+    }
+
+    protected override void Die()
+    {
+        GetComponent<Rigidbody2D>().isKinematic = true;
+        Destroy(GetComponent<Rigidbody2D>());
+
+        GetComponent<Collider2D>().enabled = false;
+
+        healthBar.gameObject.SetActive(false);
+
+        GetComponent<EnemyAI>().enabled = false;
+        this.enabled = false;
+
+        base.Die();
     }
 }
