@@ -6,7 +6,7 @@ using UnityEngine;
 public class EnemyAI : MonoBehaviour
 {
     [SerializeField] private float angryDistance;           // Дистанция активации, привлечения моба.
-    [SerializeField] protected float atackDistance;         // Дистанция на которой моб начинает атаковать.
+    [SerializeField] protected float attackDistance;         // Дистанция на которой моб начинает атаковать.
 
     private bool visible;                                   // Попал ли моб в камеру.
     protected bool angry;                                   // Актвен ли моб, заметил ли игрока.
@@ -27,7 +27,7 @@ public class EnemyAI : MonoBehaviour
     {
         distanceToPlayer = Vector2.Distance(player.position, transform.position);
 
-        if (distanceToPlayer < angryDistance && visible)
+        if (visible && distanceToPlayer < angryDistance)
         {
             angry = true;
         }
@@ -37,6 +37,20 @@ public class EnemyAI : MonoBehaviour
         }
 
         return angry;
+    }
+
+    protected bool IsAttacking()
+    {
+        float weaponDistanceToPlayer = Vector2.Distance(player.position, enemy.weapon.transform.position);
+
+        if (angry && weaponDistanceToPlayer < attackDistance)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 
     // Проверка с какой стороны игрок, от моба

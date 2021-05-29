@@ -6,6 +6,9 @@ using UnityEngine;
 public class Gnome : Character
 {
     [SerializeField] private float jumpForce;                   // Сила прыжка.
+    [SerializeField] private float groundCheckerRadius = 0.01F;             // Радиус проверки касания земли
+    [SerializeField] private Transform groundCheckerPos;                    // Позиция крука для проверки наземле ли персонаж 
+    [SerializeField] protected LayerMask groundMask;                        // Маска слове, для проверки касания земли
 
     [SerializeField] private CollisionTester collisionTester;   // Ссылка на объект, проверяющий столкнавения, что бы не застривать в полете.
     [SerializeField] private Weapon weapon1;                    // Ссылка на первое оружие, кирка.
@@ -47,14 +50,15 @@ public class Gnome : Character
         else
             StunTimerStap();
 
-        isGrounded = IsGrounded();// обновляем переменную проверки, на замле ли персонаж
+        IsGrounded();// обновляем переменную проверки, на замле ли персонаж
 
-        Jump();// попытка прыжка
+        if (isGrounded && Input.GetKeyDown(KeyCode.Space))
+            Jump();// попытка прыжка
 
         // попытка атак киркой
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
-            Atack();
+            Attack();
         }
 
         // попытка дополнительной атак
@@ -64,10 +68,10 @@ public class Gnome : Character
         }
     }
 
-    public override void Atack()
+    public override void Attack()
     {
         if (weapon1.TryAttack())
-            base.Atack();
+            base.Attack();
     }
 
     private void Atack2()
@@ -85,20 +89,27 @@ public class Gnome : Character
     // Персонаж прыгает, если на земле и нажата кнопка прыжка.
     private void Jump()
     {
-        if (isGrounded == true)
-        {
-            animator.SetBool("isJumping", false);
+        rb.velocity = Vector2.up * jumpForce;
+        animator.SetTrigger("takeOff");
+    }
 
-            if (Input.GetKeyDown(KeyCode.Space))
-            {
-                rb.velocity = Vector2.up * jumpForce;
-                animator.SetTrigger("takeOff");
-            }
-        }
+    // Проверка, наземле ли песонаж.
+    protected void IsGrounded()
+    {
+        isGrounded = Physics2D.OverlapCircle(groundCheckerPos.position, groundCheckerRadius, groundMask);
+
+        if(isGrounded)
+            animator.SetBool("isJumping", false);
         else
         {
             animator.SetBool("isJumping", true);
             animator.SetBool("isRunning", false);
         }
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.green;
+        Gizmos.DrawSphere(groundCheckerPos.position, groundCheckerRadius);
     }
 }

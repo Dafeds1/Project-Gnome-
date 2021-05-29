@@ -9,7 +9,7 @@ public class MeleeWeapon : Weapon
 
     private void Update()
     {
-        CooldownTimerStap();
+        CooldownTimerStep();
     }
 
     // Во время атаки, активируем атаку

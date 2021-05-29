@@ -7,9 +7,7 @@ public class Character : MonoBehaviour
 {
     public virtual bool facingRight { get; protected set; } = true;         // Развернут ли персонаж в правую сторону
     [SerializeField] private float xAxesSpeed;                              // Скорость перемещения по горизонтали
-    [SerializeField] private float groundCheckerRadius = 0.01F;             // Радиус проверки касания земли
-    [SerializeField] private Transform groundChckerPos;                     // Позиция крука для проверки наземле ли персонаж 
-    [SerializeField] protected LayerMask groundMask;                        // Маска слове, для проверки касания земли
+
     [SerializeField] protected Animator animator;                           // Ссылка на аниматор
     protected Rigidbody2D rb;                                               // Ссылка на rigidbody
 
@@ -54,7 +52,7 @@ public class Character : MonoBehaviour
         }
     }
 
-    public virtual void Atack()
+    public virtual void Attack()
     {
         animator.SetTrigger("attack");
     }
@@ -69,7 +67,7 @@ public class Character : MonoBehaviour
             Die();
     }
 
-    protected void Die()
+    protected virtual void Die()
     {
         TakeStun(300);
         animator.SetTrigger("dying");
@@ -97,24 +95,12 @@ public class Character : MonoBehaviour
     }
 
     // Разворот персонажа, обычно в сторону движения.
-    private void Flip()
+    public void Flip()
     {
         facingRight = !facingRight;
         Vector3 Scaler = transform.localScale;
         Scaler.x *= -1;
         transform.localScale = Scaler;
-    }
-
-    // Проверка, наземле ли песонаж.
-    protected bool IsGrounded()
-    {
-        return Physics2D.OverlapCircle(groundChckerPos.position, groundCheckerRadius, groundMask);
-    }
-
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.green;
-        Gizmos.DrawSphere(groundChckerPos.position, groundCheckerRadius);
     }
 }
 

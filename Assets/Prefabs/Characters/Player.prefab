@@ -883,7 +883,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3827764526326341164}
   m_Layer: 10
-  m_Name: GroundChecer
+  m_Name: GroundChecker
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1338,14 +1338,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   xAxesSpeed: 5
-  groundCheckerRadius: 0.4
-  groundChckerPos: {fileID: 3827764526326341164}
-  groundMask:
-    serializedVersion: 2
-    m_Bits: 192
   animator: {fileID: 0}
   maxHp: 5
   jumpForce: 15
+  groundCheckerRadius: 0.4
+  groundCheckerPos: {fileID: 3827764526326341164}
+  groundMask:
+    serializedVersion: 2
+    m_Bits: 192
   collisionTester: {fileID: 2351549283487546397}
   weapon1: {fileID: 3306733034856942180}
 --- !u!1 &8458367222085847774

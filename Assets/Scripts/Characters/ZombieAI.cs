@@ -14,8 +14,8 @@ public class ZombieAI : EnemyAI
         // Атакует если достаточно близко, иначе двигается к игроку.
         if (angry)
         {
-            if (distanceToPlayer < atackDistance)
-                enemy.Atack();
+            if (IsAttacking())
+                enemy.Attack();
             else
             {
                 if (PlayerIsLeft())
