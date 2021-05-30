@@ -3458,6 +3458,14 @@ PrefabInstance:
       propertyPath: xAxesSpeed
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 4756291392182294974, guid: 89e3b21d076f5bf4084b532029909f03, type: 3}
+      propertyPath: angryDistance
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 4756291392182294974, guid: 89e3b21d076f5bf4084b532029909f03, type: 3}
+      propertyPath: attackDistance
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 4851252234444502364, guid: 89e3b21d076f5bf4084b532029909f03, type: 3}
       propertyPath: cooldown
       value: 3
@@ -5303,11 +5311,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4047720376309807926, guid: 2d558eda992d2c544b9a034a399f2a62, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -84.42
+      value: -83.56
       objectReference: {fileID: 0}
     - target: {fileID: 4047720376309807926, guid: 2d558eda992d2c544b9a034a399f2a62, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.08
+      value: 4.04
       objectReference: {fileID: 0}
     - target: {fileID: 4047720376309807926, guid: 2d558eda992d2c544b9a034a399f2a62, type: 3}
       propertyPath: m_LocalPosition.z
@@ -10581,6 +10589,14 @@ PrefabInstance:
       propertyPath: xAxesSpeed
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 4756291392182294974, guid: 89e3b21d076f5bf4084b532029909f03, type: 3}
+      propertyPath: angryDistance
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 4756291392182294974, guid: 89e3b21d076f5bf4084b532029909f03, type: 3}
+      propertyPath: attackDistance
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 4851252234444502364, guid: 89e3b21d076f5bf4084b532029909f03, type: 3}
       propertyPath: cooldown
       value: 3
@@ -12293,6 +12309,14 @@ PrefabInstance:
     - target: {fileID: 4740450651806568891, guid: 89e3b21d076f5bf4084b532029909f03, type: 3}
       propertyPath: xAxesSpeed
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4756291392182294974, guid: 89e3b21d076f5bf4084b532029909f03, type: 3}
+      propertyPath: angryDistance
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 4756291392182294974, guid: 89e3b21d076f5bf4084b532029909f03, type: 3}
+      propertyPath: attackDistance
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4851252234444502364, guid: 89e3b21d076f5bf4084b532029909f03, type: 3}
       propertyPath: cooldown
@@ -15935,11 +15959,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4047720376309807926, guid: 2d558eda992d2c544b9a034a399f2a62, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -84.55
+      value: -83.66
       objectReference: {fileID: 0}
     - target: {fileID: 4047720376309807926, guid: 2d558eda992d2c544b9a034a399f2a62, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.62
+      value: -2.38
       objectReference: {fileID: 0}
     - target: {fileID: 4047720376309807926, guid: 2d558eda992d2c544b9a034a399f2a62, type: 3}
       propertyPath: m_LocalPosition.z
@@ -17406,6 +17430,14 @@ PrefabInstance:
     - target: {fileID: 4740450651806568891, guid: 89e3b21d076f5bf4084b532029909f03, type: 3}
       propertyPath: xAxesSpeed
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4756291392182294974, guid: 89e3b21d076f5bf4084b532029909f03, type: 3}
+      propertyPath: angryDistance
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 4756291392182294974, guid: 89e3b21d076f5bf4084b532029909f03, type: 3}
+      propertyPath: attackDistance
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4851252234444502364, guid: 89e3b21d076f5bf4084b532029909f03, type: 3}
       propertyPath: cooldown

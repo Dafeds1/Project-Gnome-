@@ -27,8 +27,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6995097096951382780}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.3, y: 0.3, z: 1}
+  m_LocalPosition: {x: -0.22755, y: 0.037925, z: -0.17828}
+  m_LocalScale: {x: 0.202758, y: 0.202758, z: 0.67586}
   m_Children:
   - {fileID: 6995097097081437030}
   m_Father: {fileID: 0}
@@ -124,9 +124,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
-  projectileSpeed: 20
+  projectileSpeed: 10
   lifetime: 3
-  facingRight: 1
   targetLayerNumber: 10
 --- !u!1 &6995097097081437031
 GameObject:
@@ -153,7 +152,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6995097097081437031}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.34, y: 0.39, z: -0.55}
+  m_LocalPosition: {x: -0.67, y: 0.31, z: -0.55}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6995097096951382770}
@@ -171,8 +170,8 @@ Light:
   m_Type: 2
   m_Shape: 0
   m_Color: {r: 0.07075471, g: 1, b: 0.119418904, a: 1}
-  m_Intensity: 3
-  m_Range: 3
+  m_Intensity: 5
+  m_Range: 2
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
