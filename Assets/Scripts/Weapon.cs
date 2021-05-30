@@ -32,7 +32,7 @@ public class Weapon : MonoBehaviour
     {
     }
 
-    protected void CooldownTimerStap()
+    protected void CooldownTimerStep()
     {
         if (isCooldown)
         {
